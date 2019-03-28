@@ -11,4 +11,16 @@ router.get("/", (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
+router.get("/:id", (req, res) => {
+  db.getDish(req.params.id)
+    .then(dish => {
+      if (dish.length > 0) {
+        res.status(200).json(dish);
+      } else {
+        res.status(404).json({msg: "Dish doesn't exist"});
+      }
+    })
+    .catch(err => res.status(500).json(err));
+});
+
 module.exports = router;
