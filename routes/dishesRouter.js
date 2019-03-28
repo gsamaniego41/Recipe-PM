@@ -23,4 +23,12 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
+router.post("/", (req, res) => {
+  db.addDish(req.body)
+    .then(id => {
+      res.status(201).json(id);
+    })
+    .catch(err => res.status(500).json(err));
+});
+
 module.exports = router;

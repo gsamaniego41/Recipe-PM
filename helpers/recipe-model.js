@@ -14,6 +14,11 @@ module.exports = {
       .where("dishes.id", id);
   },
 
+  // addDish(dish): should add the dish to the database and return the id of the new dish.
+  addDish(dish) {
+    return db("dishes").insert(dish);
+  },
+
   // getRecipes(): should return a list of all recipes in the database including the dish they belong to
   getRecipes() {
     return db("recipes")
