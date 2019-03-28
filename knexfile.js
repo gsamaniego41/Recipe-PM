@@ -7,10 +7,10 @@ module.exports = {
       filename: "./db/recipe-book.sqlite3"
     },
     migrations: {
-      filename: "./db/migrations"
+      directory: "./db/migrations"
     },
     seeds: {
-      filename: "./db/seeds"
+      directory: "./db/seeds"
     }
   }
 
