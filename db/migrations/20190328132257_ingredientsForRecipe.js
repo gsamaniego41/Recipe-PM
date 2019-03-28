@@ -11,6 +11,8 @@ exports.up = function(knex, Promise) {
       .unsigned()
       .references("id")
       .inTable("ingredients");
+    tbl.float("quantity", 2).notNullable();
+    tbl.string("unit").notNullable();
   });
 };
 

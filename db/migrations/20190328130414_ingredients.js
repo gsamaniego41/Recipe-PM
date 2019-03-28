@@ -1,9 +1,10 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable("ingredients", tbl => {
     tbl.increments();
-    tbl.string("name").notNullable();
-    tbl.decimal("quantity", 2);
-    tbl.string("measurement");
+    tbl
+      .string("name")
+      .notNullable()
+      .unique();
   });
 };
 
