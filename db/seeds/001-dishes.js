@@ -1,7 +1,7 @@
 exports.seed = function(knex, Promise) {
   return knex("dishes").insert([
-    {name: "Thai Food"},
-    {name: "Bodybuilding Meals"},
-    {name: "Filipino Food"}
+    {name: "Thai Food"}, // 1
+    {name: "Bodybuilding Meals"}, // 2
+    {name: "Filipino Food"} // 3
   ]);
 };
