@@ -24,5 +24,9 @@ module.exports = {
     return db("recipes")
       .select("recipes.id", "recipes.name", "dishes.name as dish")
       .join("dishes", "recipes.dish_id", "dishes.id");
+  },
+
+  addRecipe(recipe) {
+    return db("recipes").insert(recipe);
   }
 };

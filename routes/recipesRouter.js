@@ -9,4 +9,11 @@ router.get("/", (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
+router.post("/", (req, res) => {
+  const recipe = req.body;
+  db.addRecipe(recipe)
+    .then(id => res.status(201).json(id[0]))
+    .catch(err => res.status(500).json(err));
+});
+
 module.exports = router;
