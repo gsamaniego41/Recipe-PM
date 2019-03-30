@@ -10,6 +10,11 @@
 
 [x] Routes
 
+- Dishes
+- Recipes
+- Ingredients
+- Ingredients for recipe
+
 [] Validation to all routes
 
 ## Frontend

@@ -11,9 +11,16 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   const recipe = req.body;
-  db.addRecipe(recipe)
-    .then(id => res.status(201).json(id[0]))
-    .catch(err => res.status(500).json(err));
+  const {name, dish_id} = req.body;
+
+  !name || !dish_id
+    ? res
+        .status(400)
+        .json({error: "Please provide a recipe name and a dish id"})
+    : db
+        .addRecipe(recipe)
+        .then(id => res.status(201).json(id[0]))
+        .catch(err => res.status(500).json(err));
 });
 
 module.exports = router;

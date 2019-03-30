@@ -24,11 +24,15 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  db.addDish(req.body)
-    .then(id => {
-      res.status(201).json(id);
-    })
-    .catch(err => res.status(500).json(err));
+  const {name} = req.body;
+  !name
+    ? res.status(400).json({error: "Please provide a name for your dish"})
+    : db
+        .addDish(req.body)
+        .then(id => {
+          res.status(201).json(id);
+        })
+        .catch(err => res.status(500).json(err));
 });
 
 module.exports = router;
