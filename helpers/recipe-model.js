@@ -8,6 +8,13 @@ module.exports = {
       .join("dishes", "recipes.dish_id", "dishes.id");
   },
 
+  getRecipeById(id) {
+    return db("recipes")
+      .select("recipes.id", "recipes.name", "dishes.name as dish")
+      .join("dishes", "recipes.dish_id", "dishes.id")
+      .where("recipes.id", id);
+  },
+
   addRecipe(recipe) {
     return db("recipes").insert(recipe);
   },
