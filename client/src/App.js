@@ -3,6 +3,7 @@ import {loadProgressBar} from "axios-progress-bar";
 import axios from "axios";
 
 import "axios-progress-bar/dist/nprogress.css";
+import "./index.css";
 
 class App extends Component {
   state = {
@@ -25,7 +26,7 @@ class App extends Component {
       <div>
         <h1>Recipe Book</h1>
         {this.state.dishes.map(dish => (
-          <h2>{dish.name}</h2>
+          <h3>{dish.name}</h3>
         ))}
       </div>
     );
