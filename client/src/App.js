@@ -1,5 +1,8 @@
 import React, {Component} from "react";
+import {loadProgressBar} from "axios-progress-bar";
 import axios from "axios";
+
+import "axios-progress-bar/dist/nprogress.css";
 
 class App extends Component {
   state = {
@@ -14,6 +17,10 @@ class App extends Component {
   };
 
   render() {
+    if (!this.state.dishes.length) {
+      loadProgressBar({showSpinner: false, color: "red"});
+    }
+
     return (
       <div>
         <h1>Recipe Book</h1>
